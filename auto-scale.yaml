@@ -1,0 +1,16 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  creationTimestamp: null
+  name: bind9-deployment
+spec:
+  maxReplicas: 6
+  minReplicas: 5
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: bind9-deployment
+  targetCPUUtilizationPercentage: 70
+status:
+  currentReplicas: 0
+  desiredReplicas: 0
